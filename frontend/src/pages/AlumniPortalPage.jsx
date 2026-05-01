@@ -643,7 +643,7 @@ function NotificationList({ notifications }) {
               <small>{formatDateTime(notification.created_at)}</small>
             </div>
             {notification.link ? (
-              <Link className="secondary-button button-link" to={notification.link}>
+              <Link className="secondary-button button-link" to={normalizeNotificationLink(notification.link)}>
                 Open
               </Link>
             ) : null}
@@ -652,6 +652,10 @@ function NotificationList({ notifications }) {
       ))}
     </div>
   );
+}
+
+function normalizeNotificationLink(link) {
+  return link.startsWith("/alumni?") ? link.replace("/alumni?", "/alumni-portal?") : link;
 }
 
 function ApplicationRow({ application, onSave, disabled }) {

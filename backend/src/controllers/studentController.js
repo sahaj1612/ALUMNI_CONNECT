@@ -164,7 +164,7 @@ export const applyToJob = asyncHandler(async (req, res) => {
       recipientId: job.alumni_email,
       title: "New job application",
       message: `${student.name || student.usn} applied for ${job.role || "your job"}.`,
-      link: "/alumni?section=applications",
+      link: "/alumni-portal?section=applications",
     });
   }
 
@@ -225,7 +225,7 @@ export const registerForEvent = asyncHandler(async (req, res) => {
       recipientId: event.alumni_email,
       title: "New event registration",
       message: `${student.name || student.usn} registered for ${event.title || "your event"}.`,
-      link: "/alumni?section=registrations",
+      link: "/alumni-portal?section=registrations",
     });
   }
 
